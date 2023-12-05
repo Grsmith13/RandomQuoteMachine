@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { Card, CardBody, Button } from "react-bootstrap";
 import { quotes } from "../data";
 import { changeBackgroundColor } from "./RandomColorPage";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTiktok, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faPenNib } from "@fortawesome/free-solid-svg-icons";
 import "./QuoteBox.css";
 const QuoteBox = () => {
   const [quote, setQuote] = useState(quotes);
@@ -27,24 +30,30 @@ const QuoteBox = () => {
     "https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=" +
     encodedText;
   return (
-    <div className="quote-box-container">
-      <Card id="quote-box">
+    <div className="container quote-box-container ">
+      <div className="card mx-auto border " id="quote-box">
         <Card.Body>
           <Card.Text id="text">"{quote.text}"</Card.Text>
         </Card.Body>
         <CardBody id="author">-{quote.name}</CardBody>
         <div className="custom-buttons">
-          <Button id="tumblr-quote" className="left-button" href="#">
-            Link
+          <Button
+            id="TikTok-quote"
+            className="left-button"
+            href="#https://tiktok.com"
+          >
+            <FontAwesomeIcon icon={faTiktok}></FontAwesomeIcon>
           </Button>
           <Button id="tweet-quote" className="left-button" href={twitterLink}>
-            Link
+            <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon>
           </Button>
           <Button id="new-quote" className="right-button" onClick={handleClick}>
-            new quote
+            <FontAwesomeIcon icon={faPenNib} />
           </Button>
         </div>
-      </Card>
+      </div>
+      <div className="axis main-axis"></div>
+      <div className="axis cross-axis"></div>
     </div>
   );
 };
